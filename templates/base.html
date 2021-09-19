@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+        <div>
+            <h1>Stock Tracker website</h1>
+        </div>
+        {% block body %}{% endblock %}
+
+        <br>
+
+        <h3>Search stocks</h3>
+        <div>
+            <form action="/search/0" method="POST">
+                <label for="tickerSymbol">Ticker symbol:</label><br>
+                <input type="text" id="tickerSymbol" name="tickerSymbol"><br>
+                <input type="submit" value="Search">
+            </form>
+        </div>
+    </body>
+</html>

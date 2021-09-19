@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Search</title>
+{% endblock %}
+
+{% block body %}
+
+<button onclick="location.href='/'">Home</button><br>
+<br><br>
+
+{{ ticker }}
+<br><br>
+{{ companySummary }}
+<br><br>
+Current price: {{ currentPrice }}
+<br>
+Previous close: {{ previousClose }}
+<br><br>
+
+{% endblock %}

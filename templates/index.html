@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Home</title>
+{% endblock %}
+
+{% block body %}
+<div>
+    <h3>Portfolio</h3>
+    <button onclick="location.href='/refresh'">Refresh</button><br>
+    <br>
+    <div>
+        <table>
+            <tr>
+                <th>Stock</th>
+                <th>Quantity</th>
+                <th>Avg. purchase price</th>
+                <th>Previous close</th>
+                <th>Current price</th>
+                <th>Value of position</th>
+                <th>P/L of position</th>
+            </tr>
+            {% for stock in portfolio %}
+                <tr>
+                    <td>{{ stock[0] }} ({{ stock[1] }})</td>
+                    <td>{{ stock[2] }}</td>
+                    <td>${{ stock[3] }}</td>
+                    <td>${{ stock[4] }}</td>
+                    <td>${{ stock[5] }}</td>
+                    <td>${{ stock[6] }}</td>
+                    <td>{{ stock[8] }}${{ stock[7] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <br>
+
+    <h4>Update portfolio</h4>
+    <form action="/update/add/0/0/0" method="post">
+        <label for="addStockName">Enter stock to add: </label>
+        <input type="text" id="addStockName" name="addStockName"><br>
+        <label for="addStockPrice">Enter average purchase price: </label>
+        <input type="text" id="addStockPrice" name="addStockPrice"><br>
+        <label for="addStockQuantity">Enter amount to add: </label>
+        <input type="text" id="addStockQuantity" name="addStockQuantity"><br>
+        <input type="submit" value="Add">
+    </form>
+    <br>OR<br>
+    <br>
+    <form action="/update/remove/0/0/0" method="post">
+        <label for="removeStockName">Choose stock to remove: </label>
+        <select id="removeStockName" name="removeStockName">
+            {% for stock in portfolio %}
+                <option value="{{ stock[1] }}">{{ stock[0] }} ({{ stock[1] }})</option>
+            {% endfor %}
+        </select><br>
+        <label for="removeStockQuantity">Enter amount to remove: </label>
+        <input type="text" id="removeStockQuantity" name="removeStockQuantity"><br>
+        <input type="submit" value="Remove">
+    </form>
+
+    <br><br>
+
+</div>
+{% endblock %}
