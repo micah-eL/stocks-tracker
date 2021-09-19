@@ -1,0 +1,60 @@
+CREATE DATABASE  IF NOT EXISTS `STOCKS_TRACKER` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `STOCKS_TRACKER`;
+-- MySQL dump 10.13  Distrib 5.7.35, for Linux (x86_64)
+--
+-- Host: localhost    Database: STOCKS_TRACKER
+-- ------------------------------------------------------
+-- Server version	5.7.35-0ubuntu0.18.04.1
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `Portfolio`
+--
+
+DROP TABLE IF EXISTS `Portfolio`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `Portfolio` (
+  `StockName` varchar(100) DEFAULT NULL,
+  `Ticker` varchar(100) NOT NULL,
+  `Quantity` int(11) DEFAULT NULL,
+  `AvgPurchasePrice` decimal(10,2) DEFAULT NULL,
+  `PrevClose` decimal(10,2) DEFAULT NULL,
+  `CurrPrice` decimal(10,2) DEFAULT NULL,
+  `ValueOfPosition` decimal(10,2) DEFAULT NULL,
+  `ReturnOfPosition` decimal(10,2) DEFAULT NULL,
+  `ReturnSign` char(1) DEFAULT NULL,
+  PRIMARY KEY (`Ticker`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `Portfolio`
+--
+
+LOCK TABLES `Portfolio` WRITE;
+/*!40000 ALTER TABLE `Portfolio` DISABLE KEYS */;
+INSERT INTO `Portfolio` VALUES ('Apple Inc','AAPL',100,100.00,148.79,146.06,15044.18,4444.45,'+'),('Amazon.com, Inc.','AMZN',100,3000.00,3488.24,3462.52,339326.96,45326.96,'+'),('Facebook, Inc.','FB',100,300.00,373.06,364.72,36472.00,6472.00,'+'),('Alphabet Inc','GOOGL',100,2500.00,2872.20,2816.00,281600.00,31600.00,'+'),('Netflix Inc','NFLX',100,501.00,586.50,589.35,58935.00,8835.00,'+');
+/*!40000 ALTER TABLE `Portfolio` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2021-09-19 14:00:11
