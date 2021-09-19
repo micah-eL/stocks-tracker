@@ -17,4 +17,5 @@ If you're unfamiliar with virtual environments, you can install the following pr
 - Flask
 
 I've also included a SQL dump in the top level directory you can use to populate your Portfolio with 100 shares of none other than FAANG.
+You'll also need to set up a local MySQL database - the file “main.py” in the root directory contains the database access information at the top of the file (lines 10-15) which need to be modified to enable access to the database on your local machine.
 
