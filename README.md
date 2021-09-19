@@ -15,5 +15,6 @@ If you're unfamiliar with virtual environments, you can install the following pr
 - yfinance
 - mysql-connector-python
 - Flask
+
 I've also included a SQL dump in the top level directory you can use to populate your Portfolio with 100 shares of none other than FAANG.
 
